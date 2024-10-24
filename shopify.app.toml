@@ -1,0 +1,24 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "43cb6bdc47dfa8bc503a24c65ec8842c"
+name = "AutReview"
+handle = "autreview"
+application_url = "https://9ccd-61-247-239-206.ngrok-free.app/api/channel/appInitallization"
+embedded = true
+
+[build]
+dev_store_url = "quickstart-4a3d5f4b.myshopify.com"
+
+[auth]
+redirect_urls = [
+  "https://9ccd-61-247-239-206.ngrok-free.app/api/channel/install"
+]
+
+[webhooks]
+api_version = "2024-10"
+
+[pos]
+embedded = false
+
+[app_preferences]
+url = "https://9ccd-61-247-239-206.ngrok-free.app/api/channel/appInitallization"
