@@ -343,63 +343,48 @@
   }
 </style>
 
-<div class="product-review-page">
-  <div class="product-rating-summary">
-    <div class="star-rating" id="average-rating"></div>
-    <span class="review-count">(<span id="total-reviews"></span> Reviews)</span>
-  </div>
 
-  <div class="review-statistics">
-    <div class="average-rating">
-      <span class="rating-number" id="average-rating-number"></span>
-      <div class="star-rating" id="average-rating-stars"></div>
-      <span class="total-reviews"><span id="total-reviews-count"></span> reviews</span>
+<div class="review-statistics">
+    <div id="rating-summary" class="review-statistics">
+        <div class="average-rating">
+            <span id="rating-number" class="rating-number"></span>
+            <div class="star-rating">
+                <span id="stars-container" class="stars"></span>
+            </div>
+            <span id="total-reviews" class="total-reviews"></span>
+        </div>
+        <div id="rating-bars" class="rating-bars"></div>
+        <div id="showing-text" class="showing-text" style="display: none;"></div>
     </div>
-    <div class="rating-bars" id="rating-bars"></div>
-    <div class="showing-text" id="showing-text"></div>
-  </div>
-
-  <div class="customer-photos">
-    <h3>Customer Photos</h3>
-    <div class="photo-grid" id="customer-photos"></div>
-  </div>
-
-  <button class="write-review-button" id="write-review-button">Write a review</button>
-
-  <div class="review-filters">
-    <select id="filter-by">
-      <option value="all">All Ratings</option>
-      <option value="5">5 Stars</option>
-      <option value="4">4 Stars</option>
-      <option value="3">3 Stars</option>
-      <option value="2">2 Stars</option>
-      <option value="1">1 Star</option>
-    </select>
-    <select id="sort-by">
-      <option value="newest">Newest</option>
-      <option value="highest">Highest Rating</option>
-      <option value="lowest">Lowest Rating</option>
-    </select>
-  </div>
-
-  <div id="reviews-list" class="reviews-list"></div>
-
-  <div class="load-more-container">
-    <button id="load-more-button" class="load-more-button">Load More Reviews</button>
-  </div>
-
-  <form id="review-form" style="display: none;">
-    <input type="text" id="review-name" placeholder="Your Name" required>
-    <div class="rating">
-      <input type="radio" id="star5" name="rating" value="5" required><label for="star5"></label>
-      <input type="radio" id="star4" name="rating" value="4"><label for="star4"></label>
-      <input type="radio" id="star3" name="rating" value="3"><label for="star3"></label>
-      <input type="radio" id="star2" name="rating" value="2"><label for="star2"></label>
-      <input type="radio" id="star1" name="rating" value="1"><label for="star1"></label>
-    </div>
-    <textarea id="review-comment" placeholder="Your Review" required></textarea>
-    <button type="submit" class="write-review-button">Submit Review</button>
-  </form>
 </div>
+
+<div id="customer-photos" class="customer-photos" style="display: none;">
+    <h3 id="customer-photos-title">Customer Photos</h3>
+    <div id="photo-grid" class="photo-grid"></div>
+</div>
+
+<div class="review-filters">
+    <div id="filter-dropdown" class="review-filters" style="display: none;">
+        <select id="filterBySelect"></select>
+    </div>
+    <div id="sort-dropdown" class="review-filters" style="display: none;">
+        <select id="sortBySelect"></select>
+    </div>
+</div>
+
+<div id="reviews-list" class="reviews-list"></div>
+
+<!-- Modal structure for image preview, hidden initially -->
+<div id="image-modal" class="image-modal" style="display: none;">
+  <span id="close-modal" onclick="closeImageModal()">×</span>
+  <img id="modal-image" src="" alt="Review Image">
+</div>
+
+<div id="reviews-list" class="reviews-list"></div>
+
+<div id="load-more-container" class="load-more-container">
+  <button id="load-more-button" class="load-more-button" onclick="loadMoreReviews()">Load more</button>
+</div>
+
 
 <script src="{{ 'product_review.js' | asset_url }}" defer></script>
